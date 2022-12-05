@@ -66,9 +66,4 @@ public class Movie {
                 "\n* Cast of "+ getName() + " *" + cast
                 + "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~";
     }
-
-//    @Override
-//    public int compareTo(Movie o) {
-//        return getName().compareTo(o.getName());
-//    }
 }

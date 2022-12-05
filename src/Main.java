@@ -113,18 +113,29 @@ public class Main {
                     findByMove.getAllMovies(movies).forEach(System.out::println);
                     break;
                 case 2:
-                    System.out.print("Write movies name: ");
-                    findByMove.findMovieByName(scanner1.nextLine(), movies);
+                    try {
+                        System.out.print("Write movies name: ");
+                        String name = scanner1.nextLine();
+                        if (!name.matches("[a-zA-Za-яА-Я]*")) {
+                            throw new Exception("Ne pravilno !");
+                        }
+                        findByMove.findMovieByName(name, movies);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case 3:
                     System.out.println("""
                             Press 1 to sort by ascending
                             Press 2 to sort by descending
                             """);
-                    switch (scanner.nextInt()) {
+                    int year = scanner1.nextInt();
+                    switch (year) {
+
                         case 1 -> sortMovie.sortByYearAscending(movies);
                         case 2 -> sortMovie.sortByYearDescending(movies);
                         default -> System.out.println("Error press!!");
+
                     }
                     break;
                 case 4:
@@ -132,6 +143,7 @@ public class Main {
                             Press 1 to sort by A-z
                             Press 1 to sort by Z-a
                             """);
+
                     switch (scanner.nextInt()) {
                         case 1 -> sortMovie.sortByMovieNameA_z(movies);
                         case 2 -> sortMovie.sortByMovieNameZ_a(movies);
@@ -141,29 +153,61 @@ public class Main {
                     sortMovie.sortByDirector(movies);
                     break;
                 case 6:
-                    System.out.println("Write actor's name: ");
-                    findByMove.findMovieByActorName(scanner1.nextLine(), movies);
+                    try {
+                        System.out.println("Write actor's name: ");
+                        String name = scanner1.nextLine();
+                        if (!name.matches("[a-zA-Za-яА-Я]*")) {
+                            throw new Exception("Ne pravilno !");
+                        }
+                        findByMove.findMovieByActorName(name, movies);
+                    }catch (Exception e){
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case 7:
-                    System.out.println("Write director's name: ");
-                    findByMove.findMovieByDirector(scanner1.nextLine(), movies);
+                    try {
+                        System.out.println("Write director's name: ");
+                        String name = scanner1.nextLine();
+                        if (!name.matches("[a-zA-Za-яА-Я]*")) {
+                            throw new Exception("Ne pravilno !");
+                        }
+                        findByMove.findMovieByDirector(name, movies);
+                    }catch (Exception e){
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case 8:
                     System.out.println("Write the year: ");
                     findByMove.findMovieByYear(scanner1.nextInt(), movies);
                     break;
                 case 9:
-                    Scanner scanner2 = new Scanner(System.in);
-                    System.out.println("Write actor's name: ");
-                    String actName = scanner2.nextLine();
-                    System.out.println("------------------------------------");
-                    System.out.println("           Actor: " + actName);
-                    System.out.println("------------------------------------");
-                    findByMove.findByActorName(actName, movies);
+                    try {
+                        Scanner scanner2 = new Scanner(System.in);
+                        System.out.println("Write actor's name: ");
+                        String actName = scanner2.nextLine();
+                        if (!actName.matches("[a-zA-Za-яА-Я]*")) {
+                            throw new Exception("Ne pravilno !");
+                        }
+                        System.out.println("------------------------------------");
+                        System.out.println("           Actor: " + actName);
+                        System.out.println("------------------------------------");
+                        findByMove.findByActorName(actName, movies);
+                    }catch (Exception e){
+                        System.out.println(e.getMessage());
+
+                    }
                     break;
                 case 10:
-                    System.out.println("Write actor's role: ");
-                    findByMove.findMovieByRole(scanner1.nextLine(), movies);
+                    try {
+                        System.out.println("Write actor's role: ");
+                        String name = scanner1.nextLine();
+                        if (!name.matches("[a-zA-Za-яА-Я]*")) {
+                            throw new Exception("Ne pravilno !");
+                        }
+                        findByMove.findMovieByRole(scanner1.nextLine(), movies);
+                    }catch (Exception e){
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 default:
                     System.out.println("Error writhing!!");
